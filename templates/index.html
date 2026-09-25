@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, papá 💙</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div id="stars"></div>
+    <div id="particles"></div>
+    <div id="hearts"></div>
+
+    <audio id="birthdayMusic" loop preload="auto">
+        <source src="{{ url_for('static', filename='audio/mananitas_instrumental.wav') }}" type="audio/wav">
+    </audio>
+
+    <div class="music-control">
+        <button id="musicBtn" onclick="toggleMusic()" aria-label="Activar música">
+            <span id="musicIcon">♪</span>
+            <span id="musicText">Música suave</span>
+        </button>
+        <small>♪ Las Mañanitas · instrumental</small>
+    </div>
+
+    <div class="scene-progress">
+        <button class="dot active" onclick="goToScene(0)"></button>
+        <button class="dot" onclick="goToScene(1)"></button>
+        <button class="dot" onclick="goToScene(2)"></button>
+        <button class="dot" onclick="goToScene(3)"></button>
+        <button class="dot" onclick="goToScene(4)"></button>
+    </div>
+
+    <main id="scenes">
+
+        <!-- ESCENA 1 -->
+        <section class="scene hero-scene">
+            <div class="cinematic-glow"></div>
+            <div class="floating-balloon balloon-a"></div>
+            <div class="floating-balloon balloon-b"></div>
+
+            <div class="scene-content reveal">
+                <p class="eyebrow">✨ Hoy quiero regalarte algo diferente ✨</p>
+                <h1>Para ti,<br><span>papá</span></h1>
+                <p class="subtitle">
+                    Una pequeña historia hecha con recuerdos,<br>
+                    cariño y muchos momentos que guardo en mi corazón.
+                </p>
+
+                <button class="start-btn" onclick="startExperience()">
+                    <span>Comenzar</span>
+                    <b>→</b>
+                </button>
+
+                <div class="scroll-text">desliza para continuar ↓</div>
+            </div>
+        </section>
+
+        <!-- ESCENA 2 -->
+        <section class="scene message-scene">
+            <div class="scene-content split reveal">
+                <div class="text-side">
+                    <p class="scene-number">01 —</p>
+                    <p class="script">Primero que nada...</p>
+                    <h2>Gracias por<br><span>estar siempre.</span></h2>
+                    <p>
+                        Hay cosas que quizá no digo todos los días,
+                        pero quiero que hoy las tengas presentes.
+                    </p>
+                    <p>
+                        Gracias por tus consejos, por tu apoyo, por las
+                        risas y por cada momento que hemos compartido apesar de toda la distancia 
+                        gracias por ser tú mi papá.
+                    </p>
+                </div>
+
+                <div class="quote-card">
+                    <div class="quote-mark">“</div>
+                    <p>
+                        Algunas de las mejores cosas de la vida
+                        son los recuerdos que construimos juntos.
+                    </p>
+                    <div class="tiny-hearts">♡ 💙 ♡</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESCENA 3 -->
+        <section class="scene photo-scene">
+            <div class="scene-content reveal">
+                <p class="scene-number center">02 — RECUERDOS</p>
+                <p class="script center">Momentos que espero que pronto pasen</p>
+
+                <div class="cinema-photo">
+                    <img src="{{ url_for('static', filename='images/foto_papa.png') }}" alt="Papá y su hija">
+                    <div class="photo-caption">
+                        <span>Un abrazo que dice muchísimo esperando que pronto sea el real</span>
+                        <b>💙</b>
+                    </div>
+                </div>
+
+                <p class="photo-note">
+                    Porque detrás de cada fotografía hay una historia
+                    que vale la pena poder vivirla y virla un abrazo 
+                    a la distancia.
+                </p>
+            </div>
+        </section>
+
+        <!-- ESCENA 4 -->
+        <section class="scene family-scene">
+            <div class="scene-content family-layout reveal">
+                <div class="family-photo">
+                    <img src="{{ url_for('static', filename='images/foto_familia.jpeg') }}" alt="Foto familiar">
+                </div>
+
+                <div class="family-text">
+                    <p class="scene-number">03 —</p>
+                    <p class="script">Lo más importante</p>
+                    <h2>La familia<br><span>y los recuerdos.</span></h2>
+                    <p>
+                        Espero que sigamos juntando muchos más momentos
+                        como este pero en donde estemos todos juntos y que nunca nos falten razones para
+                        celebrar estar juntos.
+                    </p>
+                    <div class="mini-line"></div>
+                    <p class="small-note">Un recuerdo de tantos que todavía nos esperan a tu lado ✨</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESCENA 5 -->
+        <section class="scene ending-scene">
+            <div class="big-confetti"></div>
+            <div class="scene-content ending reveal">
+                <p class="script">Y ahora sí...</p>
+                <h2>¡Feliz cumpleaños,<br><span>papá!</span> 🎂</h2>
+                <p class="ending-text">
+                    Deseo que este nuevo año venga lleno de salud,
+                    tranquilidad, alegría y muchísimos momentos bonitos te quiero mucho papi.
+                </p>
+
+                <button class="celebrate-btn" onclick="celebrate()">
+                    💙🎉
+                </button>
+
+                <p class="signature">Con muchísimo cariño,<br><b>tu hija favorita</b> ♡</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
